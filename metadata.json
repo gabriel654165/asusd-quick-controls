@@ -2,8 +2,6 @@
   "uuid": "asusd-quick-controls@gabriel654165.github.io",
   "name": "Quick Controls for asusd",
   "description": "Switch the asusd power profile and set the battery charge limit from a single Quick Settings toggle. Stays in sync with changes made through asusctl or other asusd clients.\n\nRequires asusd from asus-linux.org.",
-  "shell-version": [
-    "50"
-  ],
+  "shell-version": ["50"],
   "url": "https://github.com/gabriel654165/asusd-quick-controls"
 }
