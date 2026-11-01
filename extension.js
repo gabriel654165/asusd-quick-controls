@@ -117,16 +117,17 @@ class ChargeLimitMenuItem extends PopupMenu.PopupBaseMenuItem {
         });
         this.add_child(this._label);
 
-        this.connect('destroy', () => {
-            if (this._timeoutId) {
-                GLib.source_remove(this._timeoutId);
-                this._timeoutId = 0;
-            }
-        });
-
         this._asusd.getProperty('ChargeControlEndThreshold')
             .then(value => this.setValue(value))
             .catch(logError);
+    }
+
+    destroy() {
+        if (this._timeoutId) {
+            GLib.source_remove(this._timeoutId);
+            this._timeoutId = 0;
+        }
+        super.destroy();
     }
 
     setValue(value) {
@@ -205,6 +206,11 @@ class PowerModeToggle extends QuickSettings.QuickMenuToggle {
         this._asusd.getProperty('ThrottleThermalPolicy')
             .then(value => this.setMode(value))
             .catch(logError);
+    }
+
+    destroy() {
+        this.menu.destroy();
+        super.destroy();
     }
 
     setMode(value) {
