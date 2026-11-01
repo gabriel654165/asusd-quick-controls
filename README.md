@@ -2,7 +2,7 @@
 
 GNOME Shell extension to control asusd from Quick Settings.
 
-![Power mode menu with the battery charge limit slider](screenshot.png)
+![Power mode menu with the battery charge limit slider](media/screenshot.png)
 
 ## Features
 
