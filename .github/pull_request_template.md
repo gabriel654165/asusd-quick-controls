@@ -1,6 +1,10 @@
+Closes #
+
+<!-- Pull requests must address an open issue. Open one first if needed. -->
+
 ## Description
 
-<!-- What does this change, and why? Link the related issue if there is one. -->
+<!-- What does this change, and why? -->
 
 ## Testing
 
