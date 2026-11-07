@@ -8,7 +8,8 @@ Closes #
 
 ## Testing
 
-<!-- ESLint and shexli run automatically on this pull request. -->
+<!-- ESLint and shexli run automatically. These need a real session. -->
 
 - [ ] Tested on GNOME Shell version:
+- [ ] Tested with asusd version:
 - [ ] Disabling and enabling the extension logs no errors
