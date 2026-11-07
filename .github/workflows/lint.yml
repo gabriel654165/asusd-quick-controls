@@ -1,6 +1,7 @@
 name: Lint
 
 on:
+  pull_request:
   workflow_dispatch:
     inputs:
       pull_request:
@@ -24,3 +25,22 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
+
+  shexli:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.pull_request && format('refs/pull/{0}/head', inputs.pull_request) || '' }}
+          persist-credentials: false
+      # Same files as the zip built by tools/release.sh.
+      - run: |
+          mkdir "$RUNNER_TEMP/extension"
+          cp -r extension.js metadata.json icons "$RUNNER_TEMP/extension/"
+      - run: |
+          python3 -m venv "$RUNNER_TEMP/venv"
+          . "$RUNNER_TEMP/venv/bin/activate"
+          pip install -U shexli
+          # shexli exits with 0 even when it reports issues.
+          shexli "$RUNNER_TEMP/extension" | tee "$RUNNER_TEMP/shexli.txt"
+          grep -q '^shexli: clean' "$RUNNER_TEMP/shexli.txt"
