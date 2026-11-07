@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- speedometer-medium by Wartybix, CC0-1.0, from GNOME Icon Library. Strokes converted to fills because GNOME Shell recolors symbolic icons through fill only. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path fill-opacity="0.35" d="M 12 9 C 12 10.0614424 11.5786781 11.0775719 10.828125 11.828125 L 12.9492188 13.9492188 C 14.2615662 12.6368723 15 10.8559389 15 9 Z"/>
+  <path d="M 2.3431 14.6569 A 8 8 0 1 1 13.6569 14.6569 A 1 1 0 0 1 12.2426 13.2426 A 6 6 0 1 0 3.7574 13.2426 A 1 1 0 0 1 2.3431 14.6569 Z"/>
+  <path d="M 7 5 A 1 1 0 0 1 9 5 L 9 7.2679 A 2 2 0 1 1 7 7.2679 Z"/>
+</svg>

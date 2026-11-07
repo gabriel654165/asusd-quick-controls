@@ -22,7 +22,7 @@ GNOME Shell extension to control asusd from Quick Settings.
 ```sh
 git clone https://github.com/gabriel654165/asusd-quick-controls.git
 cd asusd-quick-controls
-gnome-extensions pack --force
+gnome-extensions pack --force --extra-source=icons
 gnome-extensions install --force asusd-quick-controls@gabriel654165.github.io.shell-extension.zip
 ```
 

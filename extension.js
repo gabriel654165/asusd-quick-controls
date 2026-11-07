@@ -174,7 +174,7 @@ class ChargeLimitMenuItem extends PopupMenu.PopupBaseMenuItem {
 
 const PowerModeToggle = GObject.registerClass(
 class PowerModeToggle extends QuickSettings.QuickMenuToggle {
-    _init(asusd) {
+    _init(asusd, extensionDir) {
         super._init({
             title: MODES[0].label,
             iconName: MODES[0].icon,
@@ -182,7 +182,10 @@ class PowerModeToggle extends QuickSettings.QuickMenuToggle {
         this._asusd = asusd;
         this._modeItems = new Map();
 
-        this.menu.setHeader('utilities-system-monitor-symbolic', 'Power Mode');
+        const headerIcon = new Gio.FileIcon({
+            file: extensionDir.get_child('icons/speedometer-medium-symbolic.svg'),
+        });
+        this.menu.setHeader(headerIcon, 'Power Mode');
 
         this.chargeLimitItem = new ChargeLimitMenuItem(asusd);
         this.menu.addMenuItem(this.chargeLimitItem);
@@ -227,9 +230,9 @@ class PowerModeToggle extends QuickSettings.QuickMenuToggle {
 
 const AsusdIndicator = GObject.registerClass(
 class AsusdIndicator extends QuickSettings.SystemIndicator {
-    _init(asusd) {
+    _init(asusd, extensionDir) {
         super._init();
-        this.toggle = new PowerModeToggle(asusd);
+        this.toggle = new PowerModeToggle(asusd, extensionDir);
         this.quickSettingsItems.push(this.toggle);
     }
 });
@@ -237,7 +240,7 @@ class AsusdIndicator extends QuickSettings.SystemIndicator {
 export default class AsusdQuickControlsExtension extends Extension {
     enable() {
         this._asusd = new Asusd();
-        this._indicator = new AsusdIndicator(this._asusd);
+        this._indicator = new AsusdIndicator(this._asusd, this.dir);
         Main.panel.statusArea.quickSettings.addExternalIndicator(this._indicator);
 
         this._asusd.watch((name, value) => {
