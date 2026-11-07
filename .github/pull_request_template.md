@@ -8,6 +8,7 @@ Closes #
 
 ## Testing
 
-- [ ] `npm run lint` passes
+<!-- ESLint and shexli run automatically on this pull request. -->
+
 - [ ] Tested on GNOME Shell version:
 - [ ] Disabling and enabling the extension logs no errors
