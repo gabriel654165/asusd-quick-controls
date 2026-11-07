@@ -39,6 +39,15 @@ npm install
 npm run lint
 ```
 
+To publish a release from an up-to-date `main`, use the version as the tag:
+
+```sh
+tools/release.sh --dry-run 1.2.3
+tools/release.sh 1.2.3 "What changed"
+```
+
+The script tags the commit and creates the GitHub release with the zip attached. Upload that zip to [extensions.gnome.org](https://extensions.gnome.org/upload/) afterwards.
+
 ## Bug reports
 
 Report problems on the [issue tracker](https://github.com/gabriel654165/asusd-quick-controls/issues).
